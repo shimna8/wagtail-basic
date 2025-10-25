@@ -1,0 +1,13 @@
+# Base requirements for all environments
+Django>=5.1,<5.2
+wagtail>=6.3,<6.4
+
+# Database
+psycopg2-binary>=2.9,<3.0  # PostgreSQL adapter (optional, for production)
+
+# Environment variables
+python-decouple>=3.8
+
+# Timezone support
+pytz>=2024.1
+

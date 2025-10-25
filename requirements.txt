@@ -1,0 +1,8 @@
+# This file is kept for backward compatibility
+# For environment-specific requirements, use:
+# - requirements/development.txt for development
+# - requirements/stage.txt for staging
+# - requirements/production.txt for production
+
+# Install development requirements by default
+-r requirements/development.txt

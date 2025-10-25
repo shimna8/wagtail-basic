@@ -1,0 +1,120 @@
+# Python
+*.py[cod]
+*$py.class
+*.so
+.Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+/static/
+/staticfiles/
+/media/
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.tox/
+coverage.xml
+.cache/
+nosetests.xml
+test-results/
+*.cover
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Wagtail
+/media/original_images/
+/media/images/
+
+# Node (if using frontend build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Pylint
+pylint-report.txt
+.pylint.d/
+
+# Bandit
+bandit-report.json
+.bandit/
+
+# Pre-commit
+.pre-commit-cache/
+
+# Backup files
+*.bak
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Database dumps
+*.sql
+*.dump
+
+# Compiled translations
+*.mo
+*.pot
+
+# Documentation builds
+docs/_build/
+docs/_static/
+docs/_templates/
+site/
+
+# Black
+.black/
+
+# Database backups
+db.sqlite3.backup.*
