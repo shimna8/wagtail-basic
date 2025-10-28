@@ -1,0 +1,147 @@
+{# FAQ Block Template #}
+
+<section class="faq-block py-5">
+    <div class="container">
+        {% if block.value.title %}
+            <h2 class="text-center mb-2">{{ block.value.title }}</h2>
+        {% endif %}
+        
+        {% if block.value.description %}
+            <div class="text-center mb-5 text-muted">
+                {{ block.value.description|safe }}
+            </div>
+        {% endif %}
+
+        <div class="faq-items">
+            {% for faq_item in block.value.faqs %}
+                <div class="faq-item mb-3">
+                    <div class="faq-question" 
+                         data-bs-toggle="collapse" 
+                         data-bs-target="#faq-{{ forloop.counter }}"
+                         role="button"
+                         aria-expanded="false"
+                         aria-controls="faq-{{ forloop.counter }}">
+                        <h5 class="mb-0">
+                            <span class="faq-icon">+</span>
+                            {{ faq_item.value.question }}
+                        </h5>
+                    </div>
+                    <div class="collapse" id="faq-{{ forloop.counter }}">
+                        <div class="faq-answer pt-3">
+                            {{ faq_item.value.answer|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+.faq-block {
+    background-color: #f8f9fa;
+}
+
+.faq-items {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #f0f0f0;
+}
+
+.faq-question h5 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.faq-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.875rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.faq-answer p {
+    margin-bottom: 0.75rem;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer ul,
+.faq-answer ol {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .faq-question {
+        padding: 1rem;
+    }
+
+    .faq-question h5 {
+        font-size: 1rem;
+    }
+
+    .faq-answer {
+        padding: 0 1rem 1rem 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add smooth transitions for collapse
+    const collapseElements = document.querySelectorAll('.faq-block .collapse');
+    collapseElements.forEach(element => {
+        element.addEventListener('show.bs.collapse', function() {
+            this.style.maxHeight = this.scrollHeight + 'px';
+        });
+        element.addEventListener('hide.bs.collapse', function() {
+            this.style.maxHeight = '0';
+        });
+    });
+});
+</script>
+

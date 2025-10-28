@@ -1,0 +1,161 @@
+{# Accordion Block Template #}
+
+<section class="accordion-block py-5">
+    <div class="container">
+        {% if block.value.title %}
+            <h2 class="text-center mb-2">{{ block.value.title }}</h2>
+        {% endif %}
+        
+        {% if block.value.description %}
+            <div class="text-center mb-5 text-muted">
+                {{ block.value.description|safe }}
+            </div>
+        {% endif %}
+
+        <div class="accordion-items" 
+             data-allow-multiple="{{ block.value.allow_multiple_open|lower }}">
+            {% for accordion_item in block.value.items %}
+                <div class="accordion-item mb-3">
+                    <div class="accordion-header" 
+                         data-bs-toggle="collapse" 
+                         data-bs-target="#accordion-{{ forloop.counter }}"
+                         role="button"
+                         aria-expanded="false"
+                         aria-controls="accordion-{{ forloop.counter }}">
+                        <h5 class="mb-0">
+                            <span class="accordion-icon">▶</span>
+                            {{ accordion_item.value.heading }}
+                        </h5>
+                    </div>
+                    <div class="collapse" id="accordion-{{ forloop.counter }}">
+                        <div class="accordion-body">
+                            {{ accordion_item.value.description|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+.accordion-block {
+    background-color: #f8f9fa;
+}
+
+.accordion-items {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: white;
+    overflow: hidden;
+}
+
+.accordion-header {
+    padding: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: #f0f0f0;
+}
+
+.accordion-header h5 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+}
+
+.accordion-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: #007bff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(90deg);
+}
+
+.accordion-body {
+    padding: 1.25rem;
+    color: #555;
+    line-height: 1.6;
+    border-top: 1px solid #dee2e6;
+}
+
+.accordion-body p {
+    margin-bottom: 0.75rem;
+}
+
+.accordion-body p:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-body ul,
+.accordion-body ol {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+}
+
+.accordion-body li {
+    margin-bottom: 0.5rem;
+}
+
+.accordion-body strong {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 1rem;
+    }
+
+    .accordion-header h5 {
+        font-size: 1rem;
+    }
+
+    .accordion-body {
+        padding: 1rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const accordionContainer = document.querySelector('.accordion-items');
+    const allowMultiple = accordionContainer.dataset.allowMultiple === 'true';
+    
+    if (!allowMultiple) {
+        // Close other items when opening one
+        const collapseElements = document.querySelectorAll('.accordion-block .collapse');
+        collapseElements.forEach(element => {
+            element.addEventListener('show.bs.collapse', function() {
+                collapseElements.forEach(el => {
+                    if (el !== this && el.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(el, { toggle: false });
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+    }
+});
+</script>
+
