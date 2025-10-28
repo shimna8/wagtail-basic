@@ -5,6 +5,12 @@ from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
 
 from core.models import BasePage
+from core.blocks import (
+    ImageWithContentBlock,
+    FAQBlock,
+    AccordionBlock,
+    GetInTouchBlock,
+)
 
 
 class HomePage(BasePage):
@@ -25,6 +31,10 @@ class HomePage(BasePage):
         ('image', ImageChooserBlock(
             help_text="Full-width image"
         )),
+        ('image_with_content', ImageWithContentBlock()),
+        ('faq', FAQBlock()),
+        ('accordion', AccordionBlock()),
+        ('get_in_touch', GetInTouchBlock()),
         ('html', blocks.RawHTMLBlock(
             help_text="Raw HTML content (use with caution)"
         )),

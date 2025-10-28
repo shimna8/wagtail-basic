@@ -1,0 +1,217 @@
+{# Get In Touch Block Template #}
+
+<section class="get-in-touch-block py-5" 
+         data-bg-color="{{ block.value.background_color }}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="get-in-touch-content">
+                    <h2 class="text-center mb-3">{{ block.value.title }}</h2>
+                    
+                    <div class="description text-center mb-4">
+                        {{ block.value.description|safe }}
+                    </div>
+
+                    <div class="contact-info mb-4">
+                        {% if block.value.email %}
+                            <div class="contact-item">
+                                <span class="contact-icon">✉</span>
+                                <a href="mailto:{{ block.value.email }}">
+                                    {{ block.value.email }}
+                                </a>
+                            </div>
+                        {% endif %}
+
+                        {% if block.value.phone %}
+                            <div class="contact-item">
+                                <span class="contact-icon">☎</span>
+                                <a href="tel:{{ block.value.phone }}">
+                                    {{ block.value.phone }}
+                                </a>
+                            </div>
+                        {% endif %}
+
+                        {% if block.value.address %}
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>{{ block.value.address }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% if block.value.cta_text %}
+                        <div class="text-center">
+                            {% if block.value.cta_link %}
+                                <a href="{{ block.value.cta_link.url }}" 
+                                   class="btn btn-primary btn-lg">
+                                    {{ block.value.cta_text }}
+                                </a>
+                            {% elif block.value.cta_external %}
+                                <a href="{{ block.value.cta_external }}" 
+                                   class="btn btn-primary btn-lg"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    {{ block.value.cta_text }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.get-in-touch-block {
+    padding: 3rem 0;
+}
+
+.get-in-touch-block[data-bg-color="primary"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.get-in-touch-block[data-bg-color="secondary"] {
+    background-color: #6c757d;
+    color: white;
+}
+
+.get-in-touch-block[data-bg-color="light"] {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.get-in-touch-block[data-bg-color="dark"] {
+    background-color: #212529;
+    color: white;
+}
+
+.get-in-touch-block h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.get-in-touch-block .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.get-in-touch-block .description p {
+    margin-bottom: 0.75rem;
+}
+
+.get-in-touch-block .description p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+}
+
+.contact-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-size: 1.25rem;
+}
+
+.get-in-touch-block[data-bg-color="light"] .contact-icon,
+.get-in-touch-block[data-bg-color="light"] .contact-item {
+    color: #333;
+}
+
+.contact-item a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.get-in-touch-block[data-bg-color="primary"] .contact-item a,
+.get-in-touch-block[data-bg-color="secondary"] .contact-item a,
+.get-in-touch-block[data-bg-color="dark"] .contact-item a {
+    color: white;
+}
+
+.get-in-touch-block[data-bg-color="light"] .contact-item a {
+    color: #007bff;
+}
+
+.contact-item a:hover {
+    opacity: 0.8;
+}
+
+.get-in-touch-block .btn {
+    padding: 0.875rem 2rem;
+    font-size: 1.05rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.get-in-touch-block[data-bg-color="primary"] .btn-primary,
+.get-in-touch-block[data-bg-color="secondary"] .btn-primary,
+.get-in-touch-block[data-bg-color="dark"] .btn-primary {
+    background-color: white;
+    color: #007bff;
+    border: 2px solid white;
+}
+
+.get-in-touch-block[data-bg-color="primary"] .btn-primary:hover,
+.get-in-touch-block[data-bg-color="secondary"] .btn-primary:hover,
+.get-in-touch-block[data-bg-color="dark"] .btn-primary:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.get-in-touch-block[data-bg-color="light"] .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+}
+
+.get-in-touch-block[data-bg-color="light"] .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .get-in-touch-block {
+        padding: 2rem 0;
+    }
+
+    .get-in-touch-block h2 {
+        font-size: 1.5rem;
+    }
+
+    .get-in-touch-block .description {
+        font-size: 1rem;
+    }
+
+    .contact-item {
+        font-size: 1rem;
+    }
+
+    .get-in-touch-block .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+</style>
+
