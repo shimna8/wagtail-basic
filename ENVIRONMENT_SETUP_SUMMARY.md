@@ -8,7 +8,7 @@
 - **`stage.txt`** - Staging requirements (Gunicorn, Redis, Sentry)
 - **`production.txt`** - Production requirements (Gunicorn, Redis, Sentry, CSP, WhiteNoise)
 
-### 2. Settings Files (`mywagtailproject/settings/`)
+### 2. Settings Files (`voyah/settings/`)
 - **`base.py`** - Updated to remove environment-specific configs
 - **`development.py`** - Enhanced with Debug Toolbar, logging, SQLite database
 - **`stage.py`** - NEW! Production-like environment with configurable security
@@ -30,7 +30,7 @@
 
 ### 6. Updated Files
 - **`requirements.txt`** - Now points to `requirements/development.txt` for backward compatibility
-- **`mywagtailproject/urls.py`** - Added Debug Toolbar support for development
+- **`voyah/urls.py`** - Added Debug Toolbar support for development
 
 ## 🚀 Quick Start Guide
 
@@ -41,8 +41,8 @@
 
 # Option 2: Manual setup
 pip install -r requirements/development.txt
-python manage.py migrate --settings=mywagtailproject.settings.development
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py migrate --settings=voyah.settings.development
+python manage.py runserver --settings=voyah.settings.development
 ```
 
 ### Staging
@@ -55,8 +55,8 @@ cp .env.stage.example .env
 nano .env  # Edit with your credentials
 
 # Run with Gunicorn
-gunicorn mywagtailproject.wsgi:application \
-    --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.stage \
+gunicorn voyah.wsgi:application \
+    --env DJANGO_SETTINGS_MODULE=voyah.settings.stage \
     --bind 0.0.0.0:8000
 ```
 
@@ -70,11 +70,11 @@ cp .env.production.example .env
 nano .env  # Edit with your credentials
 
 # Run deployment checks
-python manage.py check --deploy --settings=mywagtailproject.settings.production
+python manage.py check --deploy --settings=voyah.settings.production
 
 # Run with Gunicorn
-gunicorn mywagtailproject.wsgi:application \
-    --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production \
+gunicorn voyah.wsgi:application \
+    --env DJANGO_SETTINGS_MODULE=voyah.settings.production \
     --bind 0.0.0.0:8000 \
     --workers 4
 ```
@@ -151,12 +151,12 @@ Before deploying to production, ensure:
 ### Switch Environments
 ```bash
 # Method 1: Command line flag
-python manage.py <command> --settings=mywagtailproject.settings.development
-python manage.py <command> --settings=mywagtailproject.settings.stage
-python manage.py <command> --settings=mywagtailproject.settings.production
+python manage.py <command> --settings=voyah.settings.development
+python manage.py <command> --settings=voyah.settings.stage
+python manage.py <command> --settings=voyah.settings.production
 
 # Method 2: Environment variable
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production
+export DJANGO_SETTINGS_MODULE=voyah.settings.production
 python manage.py <command>
 ```
 
@@ -167,12 +167,12 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
 
 ### Run Tests
 ```bash
-pytest --settings=mywagtailproject.settings.development
+pytest --settings=voyah.settings.development
 ```
 
 ### Check Deployment Readiness
 ```bash
-python manage.py check --deploy --settings=mywagtailproject.settings.production
+python manage.py check --deploy --settings=voyah.settings.production
 ```
 
 ## 📦 Dependencies Overview
@@ -211,9 +211,9 @@ If you're upgrading from the old setup:
 
 4. **Test each environment:**
    ```bash
-   python manage.py check --settings=mywagtailproject.settings.development
-   python manage.py check --settings=mywagtailproject.settings.stage
-   python manage.py check --settings=mywagtailproject.settings.production
+   python manage.py check --settings=voyah.settings.development
+   python manage.py check --settings=voyah.settings.stage
+   python manage.py check --settings=voyah.settings.production
    ```
 
 ## 📚 Additional Resources
@@ -240,7 +240,7 @@ Check your `.env` file and ensure PostgreSQL is running.
 
 ### Static files not loading
 ```bash
-python manage.py collectstatic --settings=mywagtailproject.settings.production
+python manage.py collectstatic --settings=voyah.settings.production
 ```
 
 ## ✅ Next Steps

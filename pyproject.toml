@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mywagtailproject"
+name = "voyah"
 version = "1.0.0"
 description = "A Wagtail CMS project with Django"
 readme = "README.md"
@@ -33,10 +33,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/mywagtailproject"
-Documentation = "https://github.com/yourusername/mywagtailproject/wiki"
-Repository = "https://github.com/yourusername/mywagtailproject"
-Issues = "https://github.com/yourusername/mywagtailproject/issues"
+Homepage = "https://github.com/yourusername/voyah"
+Documentation = "https://github.com/yourusername/voyah/wiki"
+Repository = "https://github.com/yourusername/voyah"
+Issues = "https://github.com/yourusername/voyah/issues"
 
 # Black configuration
 [tool.black]
@@ -81,13 +81,13 @@ skip_glob = [
 ]
 known_django = ["django"]
 known_wagtail = ["wagtail"]
-known_first_party = ["mywagtailproject", "home", "search"]
+known_first_party = ["voyah", "home", "search"]
 sections = ["FUTURE", "STDLIB", "DJANGO", "WAGTAIL", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 default_section = "THIRDPARTY"
 
 # Pytest configuration
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "mywagtailproject.settings.development"
+DJANGO_SETTINGS_MODULE = "voyah.settings.development"
 python_files = ["tests.py", "test_*.py", "*_tests.py"]
 python_classes = ["Test*", "*Tests"]
 python_functions = ["test_*"]
@@ -123,7 +123,7 @@ markers = [
 filterwarnings = [
     "ignore::DeprecationWarning",
     "ignore::PendingDeprecationWarning",
-    "default::DeprecationWarning:mywagtailproject.*",
+    "default::DeprecationWarning:voyah.*",
     "default::DeprecationWarning:home.*",
     "default::DeprecationWarning:search.*",
 ]
@@ -276,7 +276,7 @@ ignore = [
 "*/migrations/*.py" = ["E501"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["mywagtailproject", "home", "search"]
+known-first-party = ["voyah", "home", "search"]
 section-order = ["future", "standard-library", "django", "wagtail", "third-party", "first-party", "local-folder"]
 
 [tool.ruff.lint.isort.sections]

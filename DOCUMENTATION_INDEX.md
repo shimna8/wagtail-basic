@@ -163,7 +163,7 @@ Documentation Files:
 
 Implementation Files:
 ├── core/blocks/content_blocks.py             (Block definition)
-├── mywagtailproject/templates/blocks/
+├── voyah/templates/blocks/
 │   ├── image_with_content_block.html         (Frontend)
 │   └── previews/
 │       └── image_with_content_preview.html   (Admin preview)

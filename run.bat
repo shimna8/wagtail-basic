@@ -22,7 +22,7 @@ echo Installing dependencies...
 pip install -q -r requirements.txt
 
 REM Set development settings
-set DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+set DJANGO_SETTINGS_MODULE=voyah.settings.development
 
 REM Run migrations
 echo Running migrations...

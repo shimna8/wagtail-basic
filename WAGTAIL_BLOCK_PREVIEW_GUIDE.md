@@ -75,7 +75,7 @@ class ImageWithContentBlock(blocks.StructBlock):
 
 ## 2. Preview Template
 
-### File: `mywagtailproject/templates/blocks/previews/image_with_content_preview.html`
+### File: `voyah/templates/blocks/previews/image_with_content_preview.html`
 
 The preview template is rendered in the block chooser and editor. It shows:
 - Block icon and label
@@ -96,7 +96,7 @@ The preview template is rendered in the block chooser and editor. It shows:
 
 ## 3. Frontend Template
 
-### File: `mywagtailproject/templates/blocks/image_with_content_block.html`
+### File: `voyah/templates/blocks/image_with_content_block.html`
 
 The frontend template renders the block on the website:
 - Responsive grid layout (Bootstrap 5)
@@ -268,7 +268,7 @@ Full list: https://wagtail.io/features/
 ## 12. File Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── templates/
 │   └── blocks/
 │       ├── image_with_content_block.html      (Frontend)

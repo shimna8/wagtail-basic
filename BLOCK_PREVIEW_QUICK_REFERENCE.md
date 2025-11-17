@@ -21,7 +21,7 @@ class MyBlock(blocks.StructBlock):
 
 ### Step 2: Create Preview Template
 ```html
-{# mywagtailproject/templates/blocks/previews/my_block_preview.html #}
+{# voyah/templates/blocks/previews/my_block_preview.html #}
 <div class="block-preview">
     <div class="preview-header">
         <span class="preview-icon">🎨</span>
@@ -304,7 +304,7 @@ Then use in template:
 ## 10. File Structure
 
 ```
-mywagtailproject/
+voyah/
 └── templates/
     └── blocks/
         ├── my_block.html                    (Frontend)

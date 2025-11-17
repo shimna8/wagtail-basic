@@ -7,9 +7,9 @@
 PYTHON := python
 PIP := pip
 MANAGE := $(PYTHON) manage.py
-SETTINGS_DEV := --settings=mywagtailproject.settings.development
-SETTINGS_STAGE := --settings=mywagtailproject.settings.stage
-SETTINGS_PROD := --settings=mywagtailproject.settings.production
+SETTINGS_DEV := --settings=voyah.settings.development
+SETTINGS_STAGE := --settings=voyah.settings.stage
+SETTINGS_PROD := --settings=voyah.settings.production
 
 # Colors for output
 BLUE := \033[0;34m
@@ -133,7 +133,7 @@ lint: ## Run all linters
 	@echo "$(BLUE)→ Flake8$(NC)"
 	flake8 .
 	@echo "$(BLUE)→ Pylint$(NC)"
-	pylint mywagtailproject home search || true
+	pylint voyah home search || true
 	@echo "$(GREEN)✓ Linting complete$(NC)"
 
 lint-flake8: ## Run flake8 only
@@ -142,7 +142,7 @@ lint-flake8: ## Run flake8 only
 
 lint-pylint: ## Run pylint only
 	@echo "$(YELLOW)Running pylint...$(NC)"
-	pylint mywagtailproject home search
+	pylint voyah home search
 
 lint-ruff: ## Run ruff linter
 	@echo "$(YELLOW)Running ruff...$(NC)"
@@ -215,11 +215,11 @@ build: clean ## Build distribution packages
 # Docker targets (if using Docker)
 docker-build: ## Build Docker image
 	@echo "$(YELLOW)Building Docker image...$(NC)"
-	docker build -t mywagtailproject .
+	docker build -t voyah .
 
 docker-run: ## Run Docker container
 	@echo "$(BLUE)Running Docker container...$(NC)"
-	docker run -p 8000:8000 mywagtailproject
+	docker run -p 8000:8000 voyah
 
 # Database targets
 db-reset: clean-db migrate ## Reset database (WARNING: deletes all data)

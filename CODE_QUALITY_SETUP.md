@@ -214,13 +214,13 @@ ruff format .
 
 ```bash
 # Analyze all Python files
-pylint mywagtailproject home search
+pylint voyah home search
 
 # Analyze specific file
 pylint myfile.py
 
 # Generate report
-pylint --output-format=text mywagtailproject > pylint-report.txt
+pylint --output-format=text voyah > pylint-report.txt
 ```
 
 ## 🔒 Security Scanning
@@ -412,7 +412,7 @@ jobs:
 
 3. **Check code quality**
    ```bash
-   flake8 && pylint mywagtailproject
+   flake8 && pylint voyah
    ```
 
 4. **Maintain test coverage above 80%**

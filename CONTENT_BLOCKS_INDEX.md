@@ -176,7 +176,7 @@ python manage.py migrate
 - **Blocks**: ImageWithContentBlock, FAQBlock, AccordionBlock, GetInTouchBlock
 
 ### Templates
-- **Location**: `mywagtailproject/templates/blocks/`
+- **Location**: `voyah/templates/blocks/`
 - **Files**: 4 HTML templates
 - **Features**: Responsive, Bootstrap 5, CSS included
 

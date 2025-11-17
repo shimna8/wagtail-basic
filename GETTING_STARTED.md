@@ -20,20 +20,20 @@
 
 **Linux/macOS:**
 ```bash
-cd mywagtailproject
+cd voyah
 chmod +x run.sh
 ./run.sh
 ```
 
 **Windows:**
 ```bash
-cd mywagtailproject
+cd voyah
 run.bat
 ```
 
 **Manual:**
 ```bash
-cd mywagtailproject
+cd voyah
 source venv/bin/activate  # or venv\Scripts\activate
 python manage.py runserver
 ```
@@ -109,12 +109,12 @@ class BlogPage(Page):
 ```
 
 ### Task 7: Add Static Files
-1. Create `mywagtailproject/static/css/custom.css`
+1. Create `voyah/static/css/custom.css`
 2. Add your CSS
 3. Link in templates: `{% static 'css/custom.css' %}`
 
 ### Task 8: Create Custom Template
-1. Create `mywagtailproject/templates/custom_page.html`
+1. Create `voyah/templates/custom_page.html`
 2. Extend base template
 3. Add your HTML
 
@@ -196,7 +196,7 @@ class HomePageTests(TestCase):
 - [ ] Set up logging
 
 ### Task 16: Create Production Settings
-Create `mywagtailproject/settings/production.py`:
+Create `voyah/settings/production.py`:
 ```python
 from .base import *
 
@@ -253,7 +253,7 @@ Happy coding! 🚀
 
 ---
 
-**Project:** mywagtailproject  
+**Project:** voyah  
 **Wagtail:** 6.3.5  
 **Django:** 5.1.13  
 **Status:** Ready for Development ✓

@@ -2,10 +2,10 @@
 
 ## 📦 Project Overview
 
-**Project Name:** mywagtailproject  
+**Project Name:** voyah  
 **Created:** October 2025  
 **Status:** ✅ Ready for Development  
-**Location:** `/media/shimna/679d4f93-1438-4a46-8af7-ec5d8b4cdb4b/projects/django/mywagtailproject`
+**Location:** `/media/shimna/679d4f93-1438-4a46-8af7-ec5d8b4cdb4b/projects/django/voyah`
 
 ## 🎯 What's Included
 
@@ -87,7 +87,7 @@
 
 ### Fastest Way (Recommended)
 ```bash
-cd mywagtailproject
+cd voyah
 
 # Linux/macOS
 chmod +x run.sh
@@ -99,7 +99,7 @@ run.bat
 
 ### Manual Way
 ```bash
-cd mywagtailproject
+cd voyah
 python3 -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
@@ -118,7 +118,7 @@ python manage.py runserver
 ## 📁 Project Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── Documentation
 │   ├── README.md              ← Start here!
 │   ├── GETTING_STARTED.md     ← First-time setup
@@ -136,7 +136,7 @@ mywagtailproject/
 │   └── Dockerfile             ← Docker config
 │
 ├── Project Settings
-│   └── mywagtailproject/
+│   └── voyah/
 │       ├── settings/          ← Django settings
 │       ├── urls.py            ← URL routing
 │       ├── wsgi.py            ← WSGI config
@@ -311,7 +311,7 @@ Your Wagtail project is ready. Start by reading README.md and running the develo
 
 ---
 
-**Project:** mywagtailproject  
+**Project:** voyah  
 **Wagtail:** 6.3.5  
 **Django:** 5.1.13  
 **Status:** ✅ Ready for Development

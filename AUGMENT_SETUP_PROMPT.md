@@ -40,8 +40,8 @@ Create separate requirements and settings files for development, staging, and pr
 - Make all scripts executable
 
 ### Update Run Scripts:
-- Update `run.sh` to use `mywagtailproject.settings.development`
-- Update `run.bat` to use `mywagtailproject.settings.development`
+- Update `run.sh` to use `voyah.settings.development`
+- Update `run.bat` to use `voyah.settings.development`
 
 ## 2. Code Quality & Testing Configuration
 
@@ -177,7 +177,7 @@ Create a `core` app with reusable base models and blocks:
 - Run `python manage.py migrate`
 
 ### Template Directory:
-- Create `mywagtailproject/templates/blocks/` directory for block templates
+- Create `voyah/templates/blocks/` directory for block templates
 
 ## 4. Documentation
 
@@ -322,10 +322,10 @@ After running the prompt, verify these items:
 - [ ] `requirements/stage.txt`
 - [ ] `requirements/production.txt`
 - [ ] `requirements.txt`
-- [ ] `mywagtailproject/settings/base.py`
-- [ ] `mywagtailproject/settings/development.py`
-- [ ] `mywagtailproject/settings/stage.py`
-- [ ] `mywagtailproject/settings/production.py`
+- [ ] `voyah/settings/base.py`
+- [ ] `voyah/settings/development.py`
+- [ ] `voyah/settings/stage.py`
+- [ ] `voyah/settings/production.py`
 - [ ] `.env.development.example`
 - [ ] `.env.stage.example`
 - [ ] `.env.production.example`
@@ -340,7 +340,7 @@ After running the prompt, verify these items:
 - [ ] `.secrets.baseline`
 - [ ] `Makefile`
 - [ ] `core/models.py` (with BannerBlock, SliderBlock, VideoBlock, ParallaxBlock, SEOMixin, BasePage)
-- [ ] `mywagtailproject/templates/blocks/` directory
+- [ ] `voyah/templates/blocks/` directory
 - [ ] `ENVIRONMENTS.md`
 - [ ] `ENVIRONMENT_SETUP_SUMMARY.md`
 - [ ] `QUICK_REFERENCE.md`
@@ -352,8 +352,8 @@ After running the prompt, verify these items:
 ### Files Updated:
 - [ ] `run.sh` - Uses development settings
 - [ ] `run.bat` - Uses development settings
-- [ ] `mywagtailproject/urls.py` - Debug Toolbar integration
-- [ ] `mywagtailproject/settings/base.py` - Added 'core' to INSTALLED_APPS
+- [ ] `voyah/urls.py` - Debug Toolbar integration
+- [ ] `voyah/settings/base.py` - Added 'core' to INSTALLED_APPS
 - [ ] `home/models.py` - Updated HomePage to inherit from BasePage
 
 ### Migrations Created:
@@ -364,14 +364,14 @@ After running the prompt, verify these items:
 ```bash
 # Check file structure
 ls -la requirements/
-ls -la mywagtailproject/settings/
+ls -la voyah/settings/
 ls -la scripts/
 
 # Verify Makefile works
 make help
 
 # Check Python can import settings
-python -c "from mywagtailproject.settings import development; print('✓ Settings OK')"
+python -c "from voyah.settings import development; print('✓ Settings OK')"
 
 # Verify scripts are executable
 ls -l scripts/*.sh

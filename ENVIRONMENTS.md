@@ -5,13 +5,13 @@ This project supports multiple environments with separate settings and requireme
 ## Directory Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── requirements/
 │   ├── base.txt               # Base requirements for all environments
 │   ├── development.txt        # Development-specific requirements
 │   ├── stage.txt              # Staging-specific requirements
 │   └── production.txt         # Production-specific requirements
-├── mywagtailproject/
+├── voyah/
 │   └── settings/
 │       ├── base.py            # Base settings for all environments
 │       ├── development.py     # Development settings
@@ -46,9 +46,9 @@ pip install -r requirements/development.txt
 cp .env.development.example .env
 
 # Run with development settings
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py runserver --settings=voyah.settings.development
 # OR set environment variable
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+export DJANGO_SETTINGS_MODULE=voyah.settings.development
 python manage.py runserver
 ```
 
@@ -78,13 +78,13 @@ cp .env.stage.example .env
 mkdir -p logs
 
 # Run migrations
-python manage.py migrate --settings=mywagtailproject.settings.stage
+python manage.py migrate --settings=voyah.settings.stage
 
 # Collect static files
-python manage.py collectstatic --noinput --settings=mywagtailproject.settings.stage
+python manage.py collectstatic --noinput --settings=voyah.settings.stage
 
 # Run with Gunicorn
-gunicorn mywagtailproject.wsgi:application --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.stage
+gunicorn voyah.wsgi:application --env DJANGO_SETTINGS_MODULE=voyah.settings.stage
 ```
 
 ### 3. Production
@@ -116,14 +116,14 @@ cp .env.production.example .env
 mkdir -p logs
 
 # Run migrations
-python manage.py migrate --settings=mywagtailproject.settings.production
+python manage.py migrate --settings=voyah.settings.production
 
 # Collect static files
-python manage.py collectstatic --noinput --settings=mywagtailproject.settings.production
+python manage.py collectstatic --noinput --settings=voyah.settings.production
 
 # Run with Gunicorn
-gunicorn mywagtailproject.wsgi:application \
-    --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production \
+gunicorn voyah.wsgi:application \
+    --env DJANGO_SETTINGS_MODULE=voyah.settings.production \
     --bind 0.0.0.0:8000 \
     --workers 4 \
     --timeout 60 \
@@ -152,20 +152,20 @@ Each environment uses environment variables for sensitive configuration. Use the
 
 ### Method 1: Command Line Flag
 ```bash
-python manage.py runserver --settings=mywagtailproject.settings.development
-python manage.py migrate --settings=mywagtailproject.settings.stage
+python manage.py runserver --settings=voyah.settings.development
+python manage.py migrate --settings=voyah.settings.stage
 ```
 
 ### Method 2: Environment Variable
 ```bash
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production
+export DJANGO_SETTINGS_MODULE=voyah.settings.production
 python manage.py runserver
 ```
 
 ### Method 3: .env File
 ```bash
 # In .env file
-DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+DJANGO_SETTINGS_MODULE=voyah.settings.development
 ```
 
 ## Database Setup
@@ -180,12 +180,12 @@ sudo apt-get install postgresql postgresql-contrib
 
 # Create database and user
 sudo -u postgres psql
-CREATE DATABASE mywagtailproject_stage;
-CREATE USER mywagtailproject WITH PASSWORD 'your_password';
-ALTER ROLE mywagtailproject SET client_encoding TO 'utf8';
-ALTER ROLE mywagtailproject SET default_transaction_isolation TO 'read committed';
-ALTER ROLE mywagtailproject SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE mywagtailproject_stage TO mywagtailproject;
+CREATE DATABASE voyah_stage;
+CREATE USER voyah WITH PASSWORD 'your_password';
+ALTER ROLE voyah SET client_encoding TO 'utf8';
+ALTER ROLE voyah SET default_transaction_isolation TO 'read committed';
+ALTER ROLE voyah SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE voyah_stage TO voyah;
 \q
 ```
 
@@ -221,7 +221,7 @@ redis-cli ping
 ## Deployment Examples
 
 ### Using systemd (Linux)
-Create `/etc/systemd/system/mywagtailproject.service`:
+Create `/etc/systemd/system/voyah.service`:
 ```ini
 [Unit]
 Description=Wagtail Project
@@ -230,9 +230,9 @@ After=network.target
 [Service]
 User=www-data
 Group=www-data
-WorkingDirectory=/path/to/mywagtailproject
-Environment="DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production"
-ExecStart=/path/to/venv/bin/gunicorn mywagtailproject.wsgi:application --bind 0.0.0.0:8000
+WorkingDirectory=/path/to/voyah
+Environment="DJANGO_SETTINGS_MODULE=voyah.settings.production"
+ExecStart=/path/to/venv/bin/gunicorn voyah.wsgi:application --bind 0.0.0.0:8000
 
 [Install]
 WantedBy=multi-user.target

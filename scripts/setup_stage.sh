@@ -31,7 +31,7 @@ echo "Creating logs directory..."
 mkdir -p logs
 
 # Set Django settings module
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.stage
+export DJANGO_SETTINGS_MODULE=voyah.settings.stage
 
 # Run migrations
 echo "Running migrations..."
@@ -54,5 +54,5 @@ echo "✅ Staging environment setup complete!"
 echo ""
 echo "To start the staging server with Gunicorn, run:"
 echo "  source venv/bin/activate"
-echo "  gunicorn mywagtailproject.wsgi:application --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.stage --bind 0.0.0.0:8000"
+echo "  gunicorn voyah.wsgi:application --env DJANGO_SETTINGS_MODULE=voyah.settings.stage --bind 0.0.0.0:8000"
 

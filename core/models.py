@@ -67,24 +67,24 @@ class BasePage(SEOMixin, Page):
     )
 
     # Flexible body content - editors can mix and match blocks
-    body = StreamField(
-        [
-            ('image_with_content', ImageWithContentBlock()),
-            ('faq', FAQBlock()),
-            ('accordion', AccordionBlock()),
-            ('get_in_touch', GetInTouchBlock()),
-        ],
-        blank=True,
-        use_json_field=True,
-        help_text="Add content blocks to build your page"
-    )
+    # body = StreamField(
+    #     [
+    #         ('image_with_content', ImageWithContentBlock()),
+    #         ('faq', FAQBlock()),
+    #         ('accordion', AccordionBlock()),
+    #         ('get_in_touch', GetInTouchBlock()),
+    #     ],
+    #     blank=True,
+    #     use_json_field=True,
+    #     help_text="Add content blocks to build your page"
+    # )
 
     class Meta:
         abstract = True
 
     content_panels = Page.content_panels + [
         FieldPanel('hero'),
-        FieldPanel('body'),
+        # FieldPanel('body'),
     ]
 
     promote_panels = Page.promote_panels + SEOMixin.seo_panels

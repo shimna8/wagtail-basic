@@ -5,7 +5,7 @@
 ### Initial Setup
 ```bash
 # Clone/navigate to project
-cd mywagtailproject
+cd voyah
 
 # Create virtual environment
 python3 -m venv venv
@@ -31,10 +31,10 @@ python manage.py runserver
 ## Project Configuration
 
 ### Settings Structure
-- `mywagtailproject/settings/base.py` - Base settings
-- `mywagtailproject/settings/development.py` - Development settings
-- `mywagtailproject/settings/stage.py` - Staging settings
-- `mywagtailproject/settings/production.py` - Production settings
+- `voyah/settings/base.py` - Base settings
+- `voyah/settings/development.py` - Development settings
+- `voyah/settings/stage.py` - Staging settings
+- `voyah/settings/production.py` - Production settings
 
 ### Key Settings to Customize
 ```python
@@ -123,7 +123,7 @@ python manage.py migrate app_name 0001
 
 ### Organization
 ```
-mywagtailproject/
+voyah/
 ├── static/
 │   ├── css/
 │   │   └── style.css

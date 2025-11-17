@@ -5,21 +5,21 @@
 ### Development (Fastest)
 ```bash
 ./scripts/setup_development.sh
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py runserver --settings=voyah.settings.development
 ```
 
 ### Staging
 ```bash
 ./scripts/setup_stage.sh
 # Edit .env with your credentials
-gunicorn mywagtailproject.wsgi:application --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.stage
+gunicorn voyah.wsgi:application --env DJANGO_SETTINGS_MODULE=voyah.settings.stage
 ```
 
 ### Production
 ```bash
 ./scripts/setup_production.sh
 # Edit .env with your credentials
-gunicorn mywagtailproject.wsgi:application --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production --workers 4
+gunicorn voyah.wsgi:application --env DJANGO_SETTINGS_MODULE=voyah.settings.production --workers 4
 ```
 
 ## 📦 Install Requirements
@@ -40,45 +40,45 @@ pip install -r requirements/production.txt
 ### Run Server
 ```bash
 # Development
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py runserver --settings=voyah.settings.development
 
 # Staging/Production (with Gunicorn)
-gunicorn mywagtailproject.wsgi:application --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.stage
+gunicorn voyah.wsgi:application --env DJANGO_SETTINGS_MODULE=voyah.settings.stage
 ```
 
 ### Migrations
 ```bash
-python manage.py makemigrations --settings=mywagtailproject.settings.development
-python manage.py migrate --settings=mywagtailproject.settings.development
+python manage.py makemigrations --settings=voyah.settings.development
+python manage.py migrate --settings=voyah.settings.development
 ```
 
 ### Create Superuser
 ```bash
-python manage.py createsuperuser --settings=mywagtailproject.settings.development
+python manage.py createsuperuser --settings=voyah.settings.development
 ```
 
 ### Collect Static Files
 ```bash
-python manage.py collectstatic --noinput --settings=mywagtailproject.settings.production
+python manage.py collectstatic --noinput --settings=voyah.settings.production
 ```
 
 ### Run Tests
 ```bash
-pytest --settings=mywagtailproject.settings.development
+pytest --settings=voyah.settings.development
 ```
 
 ### Django Shell
 ```bash
 # Regular shell
-python manage.py shell --settings=mywagtailproject.settings.development
+python manage.py shell --settings=voyah.settings.development
 
 # Enhanced shell (with django-extensions)
-python manage.py shell_plus --settings=mywagtailproject.settings.development
+python manage.py shell_plus --settings=voyah.settings.development
 ```
 
 ### Check Deployment
 ```bash
-python manage.py check --deploy --settings=mywagtailproject.settings.production
+python manage.py check --deploy --settings=voyah.settings.production
 ```
 
 ## 🔑 Generate Secret Key
@@ -90,13 +90,13 @@ python -c 'from django.core.management.utils import get_random_secret_key; print
 ## 📁 File Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── requirements/
 │   ├── base.txt              # Core dependencies
 │   ├── development.txt       # + Development tools
 │   ├── stage.txt             # + Staging tools
 │   └── production.txt        # + Production tools
-├── mywagtailproject/
+├── voyah/
 │   └── settings/
 │       ├── base.py           # Base settings
 │       ├── development.py    # Development settings
@@ -121,7 +121,7 @@ Create `.env` file with:
 ```bash
 SECRET_KEY=your-secret-key-here
 ALLOWED_HOSTS=example.com,www.example.com
-DB_NAME=mywagtailproject
+DB_NAME=voyah
 DB_USER=postgres
 DB_PASSWORD=your-password
 EMAIL_HOST=smtp.example.com
@@ -135,14 +135,14 @@ REDIS_URL=redis://127.0.0.1:6379/0
 
 ### Method 1: Command Flag
 ```bash
-python manage.py <command> --settings=mywagtailproject.settings.development
-python manage.py <command> --settings=mywagtailproject.settings.stage
-python manage.py <command> --settings=mywagtailproject.settings.production
+python manage.py <command> --settings=voyah.settings.development
+python manage.py <command> --settings=voyah.settings.stage
+python manage.py <command> --settings=voyah.settings.production
 ```
 
 ### Method 2: Environment Variable
 ```bash
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production
+export DJANGO_SETTINGS_MODULE=voyah.settings.production
 python manage.py <command>
 ```
 
@@ -150,12 +150,12 @@ python manage.py <command>
 
 ### View Current Settings
 ```bash
-python manage.py diffsettings --settings=mywagtailproject.settings.development
+python manage.py diffsettings --settings=voyah.settings.development
 ```
 
 ### Check Configuration
 ```bash
-python manage.py check --settings=mywagtailproject.settings.development
+python manage.py check --settings=voyah.settings.development
 ```
 
 ### View Logs
@@ -173,9 +173,9 @@ tail -f logs/production.log
 ### PostgreSQL (Staging/Production)
 ```bash
 sudo -u postgres psql
-CREATE DATABASE mywagtailproject_stage;
-CREATE USER mywagtailproject WITH PASSWORD 'your_password';
-GRANT ALL PRIVILEGES ON DATABASE mywagtailproject_stage TO mywagtailproject;
+CREATE DATABASE voyah_stage;
+CREATE USER voyah WITH PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE voyah_stage TO voyah;
 \q
 ```
 
@@ -200,7 +200,7 @@ sudo systemctl status redis-server
 
 ### Static Files Not Loading
 ```bash
-python manage.py collectstatic --settings=mywagtailproject.settings.production
+python manage.py collectstatic --settings=voyah.settings.production
 ```
 
 ## 📚 Documentation

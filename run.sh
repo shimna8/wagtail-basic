@@ -28,7 +28,7 @@ echo -e "${YELLOW}Installing dependencies...${NC}"
 pip install -q -r requirements.txt
 
 # Set development settings
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+export DJANGO_SETTINGS_MODULE=voyah.settings.development
 
 # Run migrations
 echo -e "${YELLOW}Running migrations...${NC}"

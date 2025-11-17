@@ -8,7 +8,7 @@ All references to "dev" have been renamed to "development" for clarity and consi
 - ✅ `requirements/dev.txt` → `requirements/development.txt`
 
 ### Settings Files
-- ✅ `mywagtailproject/settings/dev.py` → `mywagtailproject/settings/development.py`
+- ✅ `voyah/settings/dev.py` → `voyah/settings/development.py`
 
 ### Environment Files
 - ✅ `.env.dev.example` → `.env.development.example`
@@ -21,8 +21,8 @@ All references to "dev" have been renamed to "development" for clarity and consi
 ### Configuration Files
 - ✅ `requirements.txt` - Updated to reference `requirements/development.txt`
 - ✅ `.env.development.example` - Updated Django settings module reference
-- ✅ `run.sh` - Updated to use `mywagtailproject.settings.development`
-- ✅ `run.bat` - Updated to use `mywagtailproject.settings.development`
+- ✅ `run.sh` - Updated to use `voyah.settings.development`
+- ✅ `run.bat` - Updated to use `voyah.settings.development`
 
 ### Setup Scripts
 - ✅ `scripts/setup_development.sh` - Updated all internal references
@@ -47,19 +47,19 @@ pip install -r requirements/development.txt
 ### Run with Settings
 ```bash
 # Old
-python manage.py runserver --settings=mywagtailproject.settings.dev
+python manage.py runserver --settings=voyah.settings.dev
 
 # New
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py runserver --settings=voyah.settings.development
 ```
 
 ### Environment Variable
 ```bash
 # Old
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.dev
+export DJANGO_SETTINGS_MODULE=voyah.settings.dev
 
 # New
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+export DJANGO_SETTINGS_MODULE=voyah.settings.development
 ```
 
 ### Setup Script
@@ -88,8 +88,8 @@ cp .env.development.example .env
 
 # Or manually
 pip install -r requirements/development.txt
-python manage.py migrate --settings=mywagtailproject.settings.development
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py migrate --settings=voyah.settings.development
+python manage.py runserver --settings=voyah.settings.development
 
 # Or use the quick run script (already updated)
 ./run.sh
@@ -119,7 +119,7 @@ grep -r "settings\.dev\|requirements/dev\|setup_dev\|\.env\.dev" --include="*.py
 
 1. If you have any local `.env` files, update the `DJANGO_SETTINGS_MODULE` value:
    ```
-   DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+   DJANGO_SETTINGS_MODULE=voyah.settings.development
    ```
 
 2. Update any custom scripts or CI/CD pipelines that reference the old names

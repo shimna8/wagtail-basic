@@ -26,7 +26,7 @@ fi
 
 # Run migrations
 echo "Running migrations..."
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+export DJANGO_SETTINGS_MODULE=voyah.settings.development
 python manage.py migrate
 
 # Create superuser (optional)
@@ -42,7 +42,7 @@ echo "✅ Development environment setup complete!"
 echo ""
 echo "To start the development server, run:"
 echo "  source venv/bin/activate"
-echo "  python manage.py runserver --settings=mywagtailproject.settings.development"
+echo "  python manage.py runserver --settings=voyah.settings.development"
 echo ""
 echo "Or simply run: ./run.sh"
 

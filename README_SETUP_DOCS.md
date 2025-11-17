@@ -76,7 +76,7 @@ A step-by-step checklist organized in 4 phases with 22 detailed steps.
 5. Verify setup:
    ```bash
    make help
-   python -c "from mywagtailproject.settings import development"
+   python -c "from voyah.settings import development"
    ```
 6. Start developing:
    ```bash
@@ -192,13 +192,13 @@ After setup, verify everything works:
 
 ```bash
 # Check file structure
-ls requirements/ mywagtailproject/settings/ scripts/
+ls requirements/ voyah/settings/ scripts/
 
 # Test Makefile
 make help
 
 # Verify settings import
-python -c "from mywagtailproject.settings import development"
+python -c "from voyah.settings import development"
 
 # Check project info
 make info
@@ -302,7 +302,7 @@ If setup fails:
 echo $DJANGO_SETTINGS_MODULE
 
 # Try explicit import
-python -c "from mywagtailproject.settings.development import *"
+python -c "from voyah.settings.development import *"
 ```
 
 **Makefile not working**:
@@ -311,7 +311,7 @@ python -c "from mywagtailproject.settings.development import *"
 make --version
 
 # Try running commands directly
-python manage.py runserver --settings=mywagtailproject.settings.development
+python manage.py runserver --settings=voyah.settings.development
 ```
 
 **Pre-commit hooks failing**:

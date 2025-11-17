@@ -41,7 +41,7 @@ class ImageWithContentBlock(blocks.StructBlock):
 ---
 
 ### 2. **Admin Preview Template** (Created)
-**File:** `mywagtailproject/templates/blocks/previews/image_with_content_preview.html`
+**File:** `voyah/templates/blocks/previews/image_with_content_preview.html`
 
 **Features:**
 - 🎨 Beautiful gradient background
@@ -62,7 +62,7 @@ class ImageWithContentBlock(blocks.StructBlock):
 ---
 
 ### 3. **Frontend Template** (Existing)
-**File:** `mywagtailproject/templates/blocks/image_with_content_block.html`
+**File:** `voyah/templates/blocks/image_with_content_block.html`
 
 **Features:**
 - ✅ Responsive Bootstrap 5 layout
@@ -295,7 +295,7 @@ Use the same pattern for:
 ## 📊 File Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── templates/
 │   └── blocks/
 │       ├── image_with_content_block.html      (Frontend)

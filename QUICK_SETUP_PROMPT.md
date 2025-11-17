@@ -78,13 +78,13 @@ Create all files with comprehensive configurations and provide a summary.
 
 ```bash
 # Check structure
-ls requirements/ mywagtailproject/settings/ scripts/
+ls requirements/ voyah/settings/ scripts/
 
 # Test Makefile
 make help
 
 # Verify settings
-python -c "from mywagtailproject.settings import development"
+python -c "from voyah.settings import development"
 
 # Start development
 make dev

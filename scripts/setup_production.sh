@@ -33,7 +33,7 @@ echo "Creating logs directory..."
 mkdir -p logs
 
 # Set Django settings module
-export DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production
+export DJANGO_SETTINGS_MODULE=voyah.settings.production
 
 # Run Django deployment checks
 echo "Running Django deployment checks..."
@@ -61,8 +61,8 @@ echo "  - Configure regular database backups"
 echo ""
 echo "To start the production server with Gunicorn, run:"
 echo "  source venv/bin/activate"
-echo "  gunicorn mywagtailproject.wsgi:application \\"
-echo "    --env DJANGO_SETTINGS_MODULE=mywagtailproject.settings.production \\"
+echo "  gunicorn voyah.wsgi:application \\"
+echo "    --env DJANGO_SETTINGS_MODULE=voyah.settings.production \\"
 echo "    --bind 0.0.0.0:8000 \\"
 echo "    --workers 4 \\"
 echo "    --timeout 60 \\"

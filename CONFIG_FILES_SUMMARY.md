@@ -134,7 +134,7 @@ make quality
 - **Framework:** pytest
 - **Coverage Minimum:** 80%
 - **Database:** Reuse between tests for speed
-- **Settings:** `mywagtailproject.settings.development`
+- **Settings:** `voyah.settings.development`
 
 ### Type Checking
 - **Tool:** MyPy

@@ -118,3 +118,4 @@ site/
 
 # Database backups
 db.sqlite3.backup.*
+*.md

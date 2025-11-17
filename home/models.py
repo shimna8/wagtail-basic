@@ -5,13 +5,14 @@ from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
 
 from core.models import BasePage
-from core.blocks import (
-    ImageWithContentBlock,
-    FAQBlock,
-    AccordionBlock,
-    GetInTouchBlock,
-)
-
+from core.blocks.content_blocks import ContentImageBlock,ExploreModelsBlock,ModelCardsBlock,LargeBannerBlock,ContentPointsBlock,ExclusiveOfferBlock,NewsListSwiperBlock
+# from core.blocks.content_blocks import ContentImageBlock
+# from core.blocks import (
+#     ContentImageBlock,
+#     FAQBlock,
+#     AccordionBlock,
+#     GetInTouchBlock,
+# )
 
 class HomePage(BasePage):
     """
@@ -20,29 +21,18 @@ class HomePage(BasePage):
     """
 
     # Page content below the hero
-    body = StreamField([
-        ('heading', blocks.CharBlock(
-            form_classname="title",
-            help_text="Section heading"
-        )),
-        ('paragraph', blocks.RichTextBlock(
-            help_text="Paragraph text with formatting"
-        )),
-        ('image', ImageChooserBlock(
-            help_text="Full-width image"
-        )),
-        ('image_with_content', ImageWithContentBlock()),
-        ('faq', FAQBlock()),
-        ('accordion', AccordionBlock()),
-        ('get_in_touch', GetInTouchBlock()),
-        ('html', blocks.RawHTMLBlock(
-            help_text="Raw HTML content (use with caution)"
-        )),
+    content = StreamField([        
+        ('content_image_block', ContentImageBlock(group="Base Blocks")),
+        ('explore_models_block', ExploreModelsBlock(group="Base Blocks")),
+        ('model_cards_block', ModelCardsBlock(group="Base Blocks")),
+        ('large_banner_block', LargeBannerBlock(group="Base Blocks")),
+        ('content_points_block', ContentPointsBlock(group="Base Blocks")), 
+        ('exclusive_offer_block', ExclusiveOfferBlock(group="Base Blocks")),
+        ('news_list_swiper_block', NewsListSwiperBlock(group="Base Blocks")),        
     ], blank=True, use_json_field=True, help_text="Main page content")
 
     content_panels = BasePage.content_panels + [
-        FieldPanel('body'),
+        FieldPanel('content'),
     ]
-
     class Meta:
         verbose_name = "Home Page"

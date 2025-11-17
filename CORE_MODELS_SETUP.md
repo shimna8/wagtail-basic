@@ -78,7 +78,7 @@ Adds to Wagtail's built-in SEO fields:
    - SEOMixin
    - BasePage
 
-2. **`mywagtailproject/settings/base.py`**
+2. **`voyah/settings/base.py`**
    - Added `'core'` to INSTALLED_APPS
 
 3. **`home/models.py`**
@@ -227,7 +227,7 @@ When editing a page in Wagtail admin, you'll see:
 You need to create templates for each block type:
 
 ```
-mywagtailproject/templates/blocks/
+voyah/templates/blocks/
 ├── banner_block.html
 ├── slider_block.html
 ├── video_block.html
@@ -239,7 +239,7 @@ mywagtailproject/templates/blocks/
 Update your base template to render the hero section:
 
 ```django
-{# mywagtailproject/templates/base.html #}
+{# voyah/templates/base.html #}
 {% block hero %}
     {% if page.has_hero %}
         {% for block in page.hero %}
@@ -254,7 +254,7 @@ Update your base template to render the hero section:
 Create CSS for hero sections:
 
 ```
-mywagtailproject/static/css/
+voyah/static/css/
 ├── hero.css          # Hero/banner styles
 └── slider.css        # Slider-specific styles
 ```
@@ -264,7 +264,7 @@ mywagtailproject/static/css/
 For slider and video functionality:
 
 ```
-mywagtailproject/static/js/
+voyah/static/js/
 ├── slider.js         # Slider functionality
 ├── video-hero.js     # Video embed handling
 └── parallax.js       # Parallax effect

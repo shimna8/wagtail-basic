@@ -24,8 +24,8 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
 - [ ] Create `requirements.txt` pointing to `requirements/development.txt`
 
 ### Step 2: Refactor Settings Structure
-- [ ] Create `mywagtailproject/settings/` directory
-- [ ] Create `mywagtailproject/settings/__init__.py` (empty)
+- [ ] Create `voyah/settings/` directory
+- [ ] Create `voyah/settings/__init__.py` (empty)
 - [ ] Move and refactor `settings.py` to `settings/base.py`:
   - Remove environment-specific settings
   - Keep: INSTALLED_APPS, MIDDLEWARE, TEMPLATES, AUTH_PASSWORD_VALIDATORS
@@ -63,7 +63,7 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
 
 ### Step 3: Create Environment Variable Templates
 - [ ] Create `.env.development.example`:
-  - DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+  - DJANGO_SETTINGS_MODULE=voyah.settings.development
   - SECRET_KEY (example)
 - [ ] Create `.env.stage.example`:
   - All staging configuration variables
@@ -94,7 +94,7 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
 
 ### Step 5: Update Run Scripts
 - [ ] Update `run.sh`:
-  - Set DJANGO_SETTINGS_MODULE=mywagtailproject.settings.development
+  - Set DJANGO_SETTINGS_MODULE=voyah.settings.development
   - Run migrations
   - Collect static files
   - Start development server
@@ -102,7 +102,7 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
   - Same as run.sh but for Windows
 
 ### Step 6: Update URL Configuration
-- [ ] Edit `mywagtailproject/urls.py`:
+- [ ] Edit `voyah/urls.py`:
   - Add conditional Debug Toolbar URLs for development
   ```python
   if settings.DEBUG:
@@ -154,7 +154,7 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
 
 ### Step 9: Create Pytest Configuration
 - [ ] Create `pytest.ini`:
-  - Set DJANGO_SETTINGS_MODULE = mywagtailproject.settings.development
+  - Set DJANGO_SETTINGS_MODULE = voyah.settings.development
   - Configure test discovery patterns
   - Set testpaths (home, search, tests)
   - Add addopts: -v, -ra, --showlocals, --strict-markers, --strict-config
@@ -345,7 +345,7 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
   - Add verbose_name in Meta
 
 ### Step 24: Create Template Directory
-- [ ] Create `mywagtailproject/templates/blocks/` directory
+- [ ] Create `voyah/templates/blocks/` directory
 - [ ] This will hold block templates (banner_block.html, slider_block.html, etc.)
 
 ### Step 25: Create Migrations
@@ -382,16 +382,16 @@ Complete checklist of all steps performed to set up a production-ready Django/Wa
 - [ ] Check all files exist:
   ```bash
   ls requirements/
-  ls mywagtailproject/settings/
+  ls voyah/settings/
   ls scripts/
   ls core/
-  ls mywagtailproject/templates/blocks/
+  ls voyah/templates/blocks/
   ls -la .gitignore .pre-commit-config.yaml pytest.ini setup.cfg pyproject.toml
   ```
 
 ### Step 28: Verify Configuration
 - [ ] Test Makefile: `make help`
-- [ ] Test settings import: `python -c "from mywagtailproject.settings import development"`
+- [ ] Test settings import: `python -c "from voyah.settings import development"`
 - [ ] Check scripts are executable: `ls -l scripts/*.sh`
 - [ ] Test core models import: `python -c "from core.models import BasePage, BannerBlock; print('✓ Core models OK')"`
 - [ ] Verify migrations: `python manage.py showmigrations core home`
@@ -474,7 +474,7 @@ After completing all steps above:
 Your setup is complete when:
 - ✅ All files in checklist exist
 - ✅ `make help` shows all commands
-- ✅ `python -c "from mywagtailproject.settings import development"` works
+- ✅ `python -c "from voyah.settings import development"` works
 - ✅ `make test` runs (even if no tests exist yet)
 - ✅ `make format` formats code successfully
 - ✅ `make run` starts the development server

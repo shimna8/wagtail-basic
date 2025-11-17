@@ -3,8 +3,8 @@
 ## Project Overview
 This is a new Wagtail CMS project created with the latest updates (October 2025).
 
-**Project Name:** mywagtailproject  
-**Location:** `/media/shimna/679d4f93-1438-4a46-8af7-ec5d8b4cdb4b/projects/django/mywagtailproject`
+**Project Name:** voyah  
+**Location:** `/media/shimna/679d4f93-1438-4a46-8af7-ec5d8b4cdb4b/projects/django/voyah`
 
 ## Technology Stack
 
@@ -27,13 +27,13 @@ This is a new Wagtail CMS project created with the latest updates (October 2025)
 ## Project Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── manage.py                 # Django management script
 ├── requirements.txt          # Python dependencies
 ├── db.sqlite3               # SQLite database (development)
 ├── Dockerfile               # Docker configuration
 ├── venv/                    # Virtual environment
-├── mywagtailproject/        # Main project settings
+├── voyah/        # Main project settings
 │   ├── settings/            # Django settings modules
 │   ├── urls.py              # URL routing
 │   ├── wsgi.py              # WSGI application
@@ -53,7 +53,7 @@ mywagtailproject/
 
 ### 1. Activate Virtual Environment
 ```bash
-cd mywagtailproject
+cd voyah
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -143,11 +143,11 @@ python manage.py check
 Edit `home/models.py` to create custom page models inheriting from `Page`.
 
 ### Static Files
-- Project-wide: `mywagtailproject/static/`
+- Project-wide: `voyah/static/`
 - App-specific: `home/static/`
 
 ### Templates
-- Project-wide: `mywagtailproject/templates/`
+- Project-wide: `voyah/templates/`
 - App-specific: `home/templates/`
 
 ## Deployment

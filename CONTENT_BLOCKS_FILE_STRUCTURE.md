@@ -7,7 +7,7 @@
 ## 📁 Project Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── core/
 │   ├── migrations/
 │   │   └── 0001_initial.py
@@ -28,7 +28,7 @@ mywagtailproject/
 │   ├── tests.py
 │   └── views.py
 │
-├── mywagtailproject/
+├── voyah/
 │   ├── settings/
 │   │   ├── base.py
 │   │   ├── development.py
@@ -123,7 +123,7 @@ class BasePage(SEOMixin, Page):
 ### Templates (4 files)
 
 #### 1. image_with_content_block.html
-**Path**: `mywagtailproject/templates/blocks/`  
+**Path**: `voyah/templates/blocks/`  
 **Size**: ~150 lines  
 **Features**:
 - Responsive image left/right positioning
@@ -133,7 +133,7 @@ class BasePage(SEOMixin, Page):
 - Lazy loading for images
 
 #### 2. faq_block.html
-**Path**: `mywagtailproject/templates/blocks/`  
+**Path**: `voyah/templates/blocks/`  
 **Size**: ~120 lines  
 **Features**:
 - Collapsible FAQ items
@@ -143,7 +143,7 @@ class BasePage(SEOMixin, Page):
 - Inline CSS and JavaScript
 
 #### 3. accordion_block.html
-**Path**: `mywagtailproject/templates/blocks/`  
+**Path**: `voyah/templates/blocks/`  
 **Size**: ~130 lines  
 **Features**:
 - Expandable accordion items
@@ -153,7 +153,7 @@ class BasePage(SEOMixin, Page):
 - Inline CSS and JavaScript
 
 #### 4. get_in_touch_block.html
-**Path**: `mywagtailproject/templates/blocks/`  
+**Path**: `voyah/templates/blocks/`  
 **Size**: ~140 lines  
 **Features**:
 - Contact information display

@@ -1,4 +1,4 @@
-# MyWagtailProject - Latest Wagtail CMS Setup
+# voyah - Latest Wagtail CMS Setup
 
 A modern Wagtail CMS project with the latest updates and best practices.
 
@@ -79,13 +79,13 @@ python manage.py runserver
 ## 📁 Project Structure
 
 ```
-mywagtailproject/
+voyah/
 ├── manage.py                 # Django CLI
 ├── requirements.txt          # Dependencies
 ├── db.sqlite3               # Development database
 ├── SETUP_GUIDE.md           # Detailed setup guide
 ├── run.sh / run.bat         # Quick start scripts
-├── mywagtailproject/        # Project settings
+├── voyah/        # Project settings
 │   ├── settings/            # Django settings
 │   ├── urls.py              # URL routing
 │   ├── wsgi.py              # WSGI config

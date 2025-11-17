@@ -17,7 +17,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='localhost,127.0.0.1
 DATABASES = {
     'default': {
         'ENGINE': config('DB_ENGINE', default='django.db.backends.postgresql'),
-        'NAME': config('DB_NAME', default='mywagtailproject_stage'),
+        'NAME': config('DB_NAME', default='voyah_stage'),
         'USER': config('DB_USER', default='postgres'),
         'PASSWORD': config('DB_PASSWORD', default=''),
         'HOST': config('DB_HOST', default='localhost'),
